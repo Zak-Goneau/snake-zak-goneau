@@ -72,6 +72,7 @@ let speedY = 0
 let speedX = 0
 let snake: Sprite[] = []
 let mySprite: Sprite = null
+music.playMelody("C5 C5 B A C5 B G B ", 240)
 game.splash("Welcome to Snake Game!" + " Press A to Start!")
 tiles.setCurrentTilemap(tilemap`level1`)
 mySprite = sprites.create(img`
@@ -121,7 +122,6 @@ spawnFood()
 info.setScore(0)
 pause(2000)
 forever(function () {
-    music.playMelody("C5 A B G B A G C5 ", 240)
     if (growth == 0) {
         mySprite = snake.shift()
     } else {
@@ -153,4 +153,7 @@ forever(function () {
         game.over(true)
     }
     pause(200)
+})
+forever(function () {
+    music.playMelody("C5 A B G B A G C5 ", 240)
 })
