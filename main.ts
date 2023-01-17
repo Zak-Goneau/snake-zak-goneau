@@ -122,6 +122,9 @@ spawnFood()
 info.setScore(0)
 pause(2000)
 forever(function () {
+    music.playMelody("C5 A B G B A G C5 ", 240)
+})
+forever(function () {
     if (growth == 0) {
         mySprite = snake.shift()
     } else {
@@ -155,5 +158,9 @@ forever(function () {
     pause(200)
 })
 forever(function () {
-    music.playMelody("C5 A B G B A G C5 ", 240)
+    if (mySprite.overlapsWith(mySprite)) {
+        mySprite.destroy()
+        game.over(false)
+        music.wawawawaa.play()
+    }
 })
